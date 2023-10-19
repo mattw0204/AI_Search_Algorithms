@@ -19,7 +19,7 @@ int Map::GetGridIndex(int* Coord)
 	if (!Coord) return 0;
 
 	int Column = Coord[1]; // Get column
-	int Row = Coord[0] * (sizeof(MapGrid[0]) / sizeof(MapGrid)); //Get row
+	int Row = Coord[0] * (sizeof(MapGrid) / sizeof(MapGrid[0])); //Get row
 
 	return Row + Column;
 }

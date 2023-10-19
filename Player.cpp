@@ -28,3 +28,34 @@ int Player::GetFILO()
 
 	return TopElem;
 }
+
+std::vector<int> Player::getNeighbours() {
+    int coords[2] = { map->CurrentSpace[0] ,map->CurrentSpace[1] };
+    map->GetGridIndex(coords);
+    int* coord = map->GetGridCoord(map->GetGridIndex(coords));
+
+    std::vector<int> neighbours;
+    int left[2] = { coords[0] - 1, coords[1] };
+    if (left[0] >= 0) neighbours.push_back(map->GetGridIndex(left));
+    {
+
+    }
+    int up[2] = { coords[0], coords[1] - 1 };
+    if (left[1] >= 0) neighbours.push_back(map->GetGridIndex(up));
+    {
+
+    }
+
+    int right[2] = { coords[0] + 1, coords[1] };
+    if (right[0] <= 0) neighbours.push_back(map->GetGridIndex(right));
+    {
+
+    }
+    int down[2] = { coords[0], coords[1] + 1 };
+    if (down[1] <= 0) neighbours.push_back(map->GetGridIndex(down));
+    {
+
+    }
+
+    return neighbours;
+}

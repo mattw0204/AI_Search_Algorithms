@@ -4,6 +4,9 @@
 class Map
 {
 public:
+	int CurrentSpace[2] = { 0,0 };
+	int StartSpace = 1;
+	int EndSpace[2] = { 4,4 };
 	// Map constructor and destructor
 	Map() {};
 	~Map() {};
@@ -18,13 +21,11 @@ public:
 
 private:
 	// The start and end co-ordinates for the path
-	int StartSpace = 0;
-	int EndSpace = 24;
 
 public:
 	// Getters for a safe start/end request
 	int GetStart() { return this->StartSpace; };
-	int GetEnd() { return this->EndSpace; };
+	//int GetEnd() { return this->EndSpace; };
 
 	// Converts a grid index to a coordinate
 	int* GetGridCoord(int Index = 0);

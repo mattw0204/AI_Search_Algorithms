@@ -1,12 +1,13 @@
 #pragma once
 #include <vector>
+#include "Map.h"
 
 // The player class holds the logic to traverse a map
 class Player
 {
 public:
 	// Player constructor and destructor
-	Player() {};
+	Player() { map = new Map(); };
 	~Player() {};
 
 	// This is the path the player takes through the grid
@@ -15,6 +16,7 @@ public:
 	std::vector<int> FIFOQueue;
 	// This is a FILO stack
 	std::vector<int> FILOStack;
+	Map* map;
 
 	// Adds a cell to the chosen path
 	void AddCellToPath(int Index) { this->Path.push_back(Index); };
@@ -34,6 +36,8 @@ public:
 	int GetFILO();
 	// Check if cell already in stack
 	bool bIsInStack(int Index) { return std::find(FILOStack.begin(), FILOStack.end(), Index) != FILOStack.end(); }
+
+	std::vector<int> getNeighbours();
 
 };
 
